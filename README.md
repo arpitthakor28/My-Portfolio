@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Modern MERN Portfolio
 
-## Getting Started
+A premium, interactive, and high-performance developer portfolio built with a modern frontend architecture and a robust backend. Features custom canvas particle effects, custom cursor interactions, fluid physics spring animations, and an Express email API.
 
-First, run the development server:
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vite.dev/)
+[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS_v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
+[![Firebase Hosting](https://img.shields.io/badge/Firebase_Hosting-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ✨ Features
+
+*   **Interactive Fluid Canvas Cursor**: A custom HTML5 Canvas cursor that stretches, squishes, and trails behind your movements using physics-based spring logic.
+*   **Drifting Particle Background**: A particle networking web that reacts dynamically to the user's scroll speed and cursor position.
+*   **3D Rotation Cards**: Interactive profile and project elements that tilt in 3D perspective based on hover coordinates.
+*   **Modern Typography & Color Palette**: Styled using Tailwind CSS v4, custom glassmorphism components, and vibrant theme gradients.
+*   **Contact Form Backend**: Integrated with an Express server that utilizes the Resend API to deliver messages straight to your inbox.
+
+---
+
+## 📂 Project Structure
+
+```text
+arpit-portfolio/
+├── .github/workflows/   # Automated GitHub Actions deployment
+├── public/              # Static assets (images, icons)
+│   └── assets/
+│       └── profile.jpg  # Profile picture
+├── src/                 # React Frontend
+│   ├── components/      # UI components (Navbar, Hero, Cursor, Skills, etc.)
+│   ├── App.jsx          # Component assembly
+│   ├── index.css        # Global CSS & Tailwind imports
+│   └── main.jsx         # React root renderer
+├── server/              # Node.js/Express Backend
+│   ├── server.js        # Server entry & Resend email API endpoint
+│   ├── package.json     # Backend dependencies
+│   └── .env.example     # Configuration template
+├── firebase.json        # Static Firebase Hosting setup
+├── vite.config.js       # Vite bundler, proxy and path alias configuration
+└── package.json         # Frontend dependencies and scripts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Prerequisites
+*   Node.js (v18+)
+*   npm
 
-## Learn More
+### 1. Clone & Install Frontend
+```bash
+# Install frontend dependencies
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 2. Configure & Start Backend
+1. Move to the server directory:
+   ```bash
+   cd server
+   ```
+2. Install server dependencies:
+   ```bash
+   npm install
+   ```
+3. Copy the configuration file:
+   ```bash
+   cp .env.example .env
+   ```
+4. Open the `.env` file and insert your API key:
+   ```env
+   PORT=5000
+   RESEND_API_KEY=re_your_api_key_here
+   ```
+5. Start the Express server:
+   ```bash
+   npm start
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. Run Frontend
+Go back to the root directory and start the Vite development server:
+```bash
+# Return to root
+cd ..
+# Start Vite
+npm run dev
+```
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## ☁️ Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### GitHub Pages (Automated)
+Every push to the `main` branch triggers the GitHub Action configured in `.github/workflows/deploy.yml`. It automatically builds the Vite assets with relative paths and deploys them to GitHub Pages.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> Make sure to go to **Repository Settings** -> **Pages** and set **Source** to **`GitHub Actions`**.
+
+### Firebase Hosting
+To manually deploy the static production build:
+```bash
+# Compile project
+npm run build
+
+# Deploy assets
+firebase deploy --only hosting
+```
