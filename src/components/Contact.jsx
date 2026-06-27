@@ -2,15 +2,15 @@
 
 import { motion } from "framer-motion";
 import { Mail, MapPin, Send, Loader2 } from "lucide-react";
-import { Github } from "@/components/Icons";
+import { Github } from "./Icons";
 import { useState } from "react";
 
 
 export default function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+    const [status, setStatus] = useState('idle');
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
         setStatus('idle');
@@ -25,13 +25,13 @@ export default function Contact() {
         try {
             const res = await fetch('/api/contact', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers,
                 body: JSON.stringify(data),
             });
 
             if (res.ok) {
                 setStatus('success');
-                (e.target as HTMLFormElement).reset();
+                (e.target).reset();
             } else {
                 setStatus('error');
             }

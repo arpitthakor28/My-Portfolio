@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Github = ({ className = "w-6 h-6" }: { className?: string }) => (
+export const Github = ({ className = "w-6 h-6" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -18,7 +18,7 @@ export const Github = ({ className = "w-6 h-6" }: { className?: string }) => (
   </svg>
 );
 
-export const Linkedin = ({ className = "w-6 h-6" }: { className?: string }) => (
+export const Linkedin = ({ className = "w-6 h-6" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"

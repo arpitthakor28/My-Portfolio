@@ -9,13 +9,6 @@ const Section = ({
     start,
     end,
     scrollYProgress,
-}: {
-    text: string;
-    subText?: string;
-    align?: "left" | "center" | "right";
-    start: number;
-    end: number;
-    scrollYProgress: MotionValue<number>;
 }) => {
     const startPoint = Math.max(0, start - 0.08);
     const endPoint = Math.min(1, end + 0.08);
@@ -57,7 +50,7 @@ const Section = ({
     );
 };
 
-export default function Overlay({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
+export default function Overlay({ scrollYProgress }) {
     return (
         <>
             <Section

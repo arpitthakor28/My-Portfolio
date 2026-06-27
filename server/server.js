@@ -1,15 +1,29 @@
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
 import { Resend } from 'resend';
-import { NextResponse } from 'next/server';
+
+dotenv.config();
+
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+app.use(cors());
+app.use(express.json());
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
-export async function POST(request: Request) {
+app.post('/api/contact', async (req, res) => {
     if (!resend) {
-        return NextResponse.json({ error: 'Email service not configured' }, { status: 503 });
+        return res.status(503).json({ error: 'Email service not configured. Please set RESEND_API_KEY.' });
     }
 
     try {
-        const { name, email, message } = await request.json();
+        const { name, email, message } = req.body;
+
+        if (!name || !email || !message) {
+            return res.status(400).json({ error: 'Missing name, email or message.' });
+        }
 
         const { data, error } = await resend.emails.send({
             from: 'Arpit Portfolio <onboarding@resend.dev>',
@@ -31,11 +45,15 @@ export async function POST(request: Request) {
         });
 
         if (error) {
-            return NextResponse.json({ error }, { status: 400 });
+            return res.status(400).json({ error });
         }
 
-        return NextResponse.json({ data }, { status: 200 });
-    } catch (error) {
-        return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
+        return res.status(200).json({ data });
+    } catch (err) {
+        return res.status(500).json({ error: 'Failed to send email' });
     }
-}
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});

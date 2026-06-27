@@ -2,7 +2,7 @@
 
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { ArrowRight, Mail, MapPin, Zap, Layers, Code2, Briefcase, Star } from "lucide-react";
-import { Github } from "@/components/Icons";
+import { Github } from "./Icons";
 import { useRef } from "react";
 
 const statsData = [
@@ -15,14 +15,14 @@ const quickSkills = ["React", "Next.js", "TypeScript", "Node.js", "Android SDK",
 
 
 function PhotoCard() {
-  const cardRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef(null);
   const rotX = useMotionValue(0);
   const rotY = useMotionValue(0);
 
   const springX = useSpring(rotX, { stiffness: 180, damping: 24 });
   const springY = useSpring(rotY, { stiffness: 180, damping: 24 });
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (e) => {
     const card = cardRef.current;
     if (!card) return;
     const rect = card.getBoundingClientRect();

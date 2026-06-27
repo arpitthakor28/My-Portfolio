@@ -25,7 +25,7 @@ export default function CustomCursor() {
 
   useEffect(() => {
     const over = (e: MouseEvent) => {
-      const t = e.target as HTMLElement;
+      const t = e.target;
       const interactive = t.tagName === 'A' || t.tagName === 'BUTTON' ||
         t.closest('a') || t.closest('button') || t.closest('[role="button"]');
       setIsHovered(!!interactive);

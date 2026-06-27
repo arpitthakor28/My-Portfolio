@@ -1,11 +1,22 @@
 "use client";
 
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { ExternalLink, Monitor, Smartphone, Cpu, Activity } from "lucide-react";
-import { Github } from "@/components/Icons";
+import { ExternalLink, Monitor, Smartphone, Cpu, Activity, Utensils } from "lucide-react";
+import { Github } from "./Icons";
 import { useRef, useState } from "react";
 
 const projects = [
+  {
+    title: "DineFlow",
+    description: "A real-time restaurant management system and QR-based guest self-ordering portal featuring live order-sync, a KDS kitchen panel, and a cashier POS console.",
+    tech: ["React", "Socket.io", "Firebase", "Node.js"],
+    link: "https://hkrn-a2804.web.app",
+    github: "https://github.com/arpitthakor28",
+    type: "SaaS Web Application",
+    icon: <Utensils className="w-5 h-5" />,
+    accent: "#ff9f1c",
+    accentBg: "rgba(255,159,28,0.08)",
+  },
   {
     title: "AirSketch",
     description: "A futuristic gesture-controlled drawing application that lets you draw in the air using AI-powered hand tracking and MediaPipe.",
@@ -49,10 +60,10 @@ const projects = [
   },
 ];
 
-type Project = typeof projects[0];
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const cardRef = useRef<HTMLDivElement>(null);
+
+function ProjectCard({ project, index }) {
+  const cardRef = useRef(null);
   const [hovered, setHovered] = useState(false);
 
   const rotX = useMotionValue(0);
@@ -60,7 +71,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   const springX = useSpring(rotX, { stiffness: 200, damping: 28 });
   const springY = useSpring(rotY, { stiffness: 200, damping: 28 });
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (e) => {
     const card = cardRef.current;
     if (!card) return;
     const rect = card.getBoundingClientRect();

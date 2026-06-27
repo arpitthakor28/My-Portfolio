@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 
 export default function ParticleBackground() {
-    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const canvasRef = useRef(null);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -13,8 +13,7 @@ export default function ParticleBackground() {
 
         let W = window.innerWidth;
         let H = window.innerHeight;
-        let particles: Particle[] = [];
-        let scrollY = 0;
+        const particles = [];
         let lastScrollY = 0;
 
         const resize = () => {
@@ -26,13 +25,13 @@ export default function ParticleBackground() {
         resize();
 
         class Particle {
-            x: number;
-            y: number;
-            z: number;
-            vx: number;
-            vy: number;
-            r: number;
-            alpha: number;
+            x;
+            y;
+            z;
+            vx;
+            vy;
+            r;
+            alpha;
 
             constructor() {
                 this.x = Math.random() * W;
@@ -49,7 +48,7 @@ export default function ParticleBackground() {
                 this.y = Math.random() * H;
             }
 
-            update(scrollDelta: number) {
+            update(scrollDelta) {
                 this.x += this.vx + (scrollDelta * 0.005 * this.z);
                 this.y += this.vy;
                 
@@ -71,11 +70,6 @@ export default function ParticleBackground() {
         for (let i = 0; i < 80; i++) {
             particles.push(new Particle());
         }
-
-        const handleScroll = () => {
-            scrollY = window.scrollY;
-        };
-        window.addEventListener('scroll', handleScroll);
 
         const animate = () => {
             ctx.clearRect(0, 0, W, H);
@@ -113,7 +107,6 @@ export default function ParticleBackground() {
 
         return () => {
             window.removeEventListener('resize', resize);
-            window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 

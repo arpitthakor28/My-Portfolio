@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 import Overlay from "./Overlay";
 
-export default function ScrollyCanvas({ frameCount = 75 }: { frameCount?: number }) {
-    const canvasRef = useRef<HTMLCanvasElement>(null);
-    const containerRef = useRef<HTMLDivElement>(null);
-    const [images, setImages] = useState<HTMLImageElement[]>([]);
+export default function ScrollyCanvas({ frameCount = 75 }) {
+    const canvasRef = useRef(null);
+    const containerRef = useRef(null);
+    const [images, setImages] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
 
     const { scrollYProgress } = useScroll({
@@ -17,7 +17,7 @@ export default function ScrollyCanvas({ frameCount = 75 }: { frameCount?: number
 
     useEffect(() => {
         const loadImages = async () => {
-            const loadedImages: HTMLImageElement[] = [];
+            const loadedImages = [];
             const promises: Promise<void>[] = [];
 
             for (let i = 0; i < frameCount; i++) {
@@ -42,7 +42,7 @@ export default function ScrollyCanvas({ frameCount = 75 }: { frameCount?: number
         loadImages();
     }, [frameCount]);
 
-    const renderFrame = (index: number) => {
+    const renderFrame = (index) => {
         const canvas = canvasRef.current;
         if (!canvas || !images[index]) return;
 
