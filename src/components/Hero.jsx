@@ -49,7 +49,7 @@ function PhotoCard() {
       <div className="gradient-border-spin w-full h-full">
         <div className="w-full h-full overflow-hidden rounded-full">
           <img
-            src="/assets/profile.jpg"
+            src="./assets/profile.jpg"
             alt="Arpitsinh Thakor"
             className="w-full h-full object-cover scale-105 transition-all duration-700 hover:scale-110"
           />
