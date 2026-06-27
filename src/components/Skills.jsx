@@ -5,7 +5,7 @@ import { CheckCircle2, Code2, Smartphone, Database, Wrench } from "lucide-react"
 import profileImg from "../assets/profile.jpg";
 
 const allSkills = [
-  "React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3",
+  "React", "Next.js", "Socket.io", "JavaScript", "HTML5", "CSS3",
   "Tailwind CSS", "Framer Motion", "Node.js", "Express", "REST APIs",
   "MongoDB", "Firebase", "Supabase", "SQL", "Android SDK", "Java",
   "Kotlin", "Git", "Maven", "Gradle", "MediaPipe", "Canvas API",

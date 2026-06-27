@@ -12,7 +12,7 @@ const statsData = [
   { label: "Experience", value: "1+ Yr", icon: <Star className="w-4 h-4" /> },
 ];
 
-const quickSkills = ["React", "Next.js", "TypeScript", "Node.js", "Android SDK", "Kotlin"];
+const quickSkills = ["React", "Next.js", "Tailwind CSS", "Node.js", "Android SDK", "Kotlin"];
 
 
 function PhotoCard() {
