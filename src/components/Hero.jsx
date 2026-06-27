@@ -143,9 +143,7 @@ export default function Hero() {
 
               <h1 className="font-syne text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
                 Hi, I&apos;m{" "}
-                <span className="text-gradient">Arpitsinh</span>
-                <br />
-                <span className="font-instrument text-accent-warm text-6xl xl:text-8xl">Thakor</span>
+                <span className="text-gradient">your name</span>
               </h1>
 
               <p className="text-lg md:text-xl text-slate-400 leading-relaxed mb-8 max-w-xl">
