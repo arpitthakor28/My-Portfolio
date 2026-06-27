@@ -111,7 +111,7 @@ export default function Contact() {
                       name="name"
                       required
                       type="text" 
-                      placeholder="Arpitsinh"
+                      placeholder="your name"
                       className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-accent-brick/50 transition-all"
                     />
                   </div>
