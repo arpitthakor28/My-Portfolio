@@ -44,7 +44,7 @@ const projects = [
     tech: ["React", "Vite", "Tailwind v4", "Express", "Framer Motion"],
     link: "https://portfolio-673bc.web.app",
     github: "https://github.com/arpitthakor28/My-Portfolio",
-    type: "MERN Web Application",
+    type: "Web Application",
     icon: <Layers className="w-5 h-5" />,
     accent: "#7c6aff",
     accentBg: "rgba(124,106,255,0.08)",
