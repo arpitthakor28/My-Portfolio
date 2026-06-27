@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2, Code2, Smartphone, Database, Wrench } from "lucide-react";
+import profileImg from "../assets/profile.jpg";
 
 const allSkills = [
   "React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3",
@@ -95,7 +96,7 @@ export default function Skills() {
               className="glass rounded-3xl p-8 flex flex-col items-center text-center gap-5 box-shadow-brick"
             >
               <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-accent-brick/30 shadow-lg">
-                <img src="./assets/profile.jpg" alt="Arpitsinh" className="w-full h-full object-cover" />
+                <img src={profileImg} alt="Arpitsinh" className="w-full h-full object-cover" />
               </div>
               <div>
                 <h3 className="font-syne text-xl font-bold">Arpitsinh Thakor</h3>

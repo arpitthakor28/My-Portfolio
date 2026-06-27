@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { ExternalLink, Monitor, Smartphone, Cpu, Activity, Utensils } from "lucide-react";
+import { ExternalLink, Monitor, Smartphone, Cpu, Activity, Utensils, Layers } from "lucide-react";
 import { Github } from "./Icons";
 import { useRef, useState } from "react";
 
@@ -37,6 +37,17 @@ const projects = [
     icon: <Smartphone className="w-5 h-5" />,
     accent: "#8FBC8F",
     accentBg: "rgba(143,188,143,0.08)",
+  },
+  {
+    title: "Interactive Portfolio",
+    description: "A premium developer portfolio featuring a custom canvas spring-physics cursor, drifting particle networks, 3D hover effects, and a Node/Express backend for email delivery.",
+    tech: ["React", "Vite", "Tailwind v4", "Express", "Framer Motion"],
+    link: "https://portfolio-673bc.web.app",
+    github: "https://github.com/arpitthakor28/My-Portfolio",
+    type: "MERN Web Application",
+    icon: <Layers className="w-5 h-5" />,
+    accent: "#7c6aff",
+    accentBg: "rgba(124,106,255,0.08)",
   },
   {
     title: "Smart Traffic System",

@@ -4,6 +4,7 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import { ArrowRight, Mail, MapPin, Zap, Layers, Code2, Briefcase, Star } from "lucide-react";
 import { Github } from "./Icons";
 import { useRef } from "react";
+import profileImg from "../assets/profile.jpg";
 
 const statsData = [
   { label: "Projects Built", value: "5+", icon: <Briefcase className="w-4 h-4" /> },
@@ -49,7 +50,7 @@ function PhotoCard() {
       <div className="gradient-border-spin w-full h-full">
         <div className="w-full h-full overflow-hidden rounded-full">
           <img
-            src="./assets/profile.jpg"
+            src={profileImg}
             alt="Arpitsinh Thakor"
             className="w-full h-full object-cover scale-105 transition-all duration-700 hover:scale-110"
           />
